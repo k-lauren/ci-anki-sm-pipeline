@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>YT Immersion Mining — Options</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 640px; margin: 32px auto; padding: 0 16px; color: #111; }
+  h1 { font-size: 20px; margin-bottom: 4px; }
+  .sub { color: #666; margin-bottom: 24px; }
+  label { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: #555; margin-top: 18px; margin-bottom: 4px; }
+  input, select { width: 100%; padding: 8px 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; box-sizing: border-box; font-family: inherit; }
+  .row { display: flex; gap: 12px; }
+  .row > div { flex: 1; }
+  .actions { margin-top: 24px; display: flex; gap: 10px; align-items: center; }
+  button { padding: 8px 14px; border-radius: 6px; border: 1px solid #1a73e8; background: #1a73e8; color: #fff; font-size: 14px; cursor: pointer; }
+  button.secondary { background: #fff; color: #1a73e8; }
+  .status { font-size: 13px; color: #666; }
+  .status.ok { color: #107c10; }
+  .status.err { color: #b00020; }
+  .help { font-size: 12px; color: #777; margin-top: 4px; }
+  hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
+</style>
+</head>
+<body>
+  <h1>YT Immersion Mining</h1>
+  <div class="sub"><b>Hold Q</b> on a YouTube video with manual captions for the length of the clip you want — release to open the card editor.</div>
+
+  <label>DeepSeek API key</label>
+  <input id="deepseekApiKey" type="password" autocomplete="off" />
+  <div class="help">Stored locally in <code>chrome.storage.local</code>. Never sent anywhere except DeepSeek.</div>
+
+  <label>DeepSeek model</label>
+  <input id="deepseekModel" type="text" />
+
+  <div class="row">
+    <div>
+      <label>Source language</label>
+      <select id="sourceLanguage">
+        <option value="ja">Japanese</option>
+        <option value="zh">Mandarin</option>
+      </select>
+    </div>
+    <div>
+      <label>Anki deck name</label>
+      <input id="ankiDeckName" type="text" />
+    </div>
+  </div>
+
+  <hr />
+
+  <label>AnkiConnect URL</label>
+  <input id="ankiConnectUrl" type="text" />
+  <div class="help">
+    Default <code>http://127.0.0.1:8765</code>. AnkiConnect must allow this extension's origin —
+    add <code>"chrome-extension://&lt;your-extension-id&gt;"</code> to <code>webCorsOriginList</code>
+    in AnkiConnect's config (Tools → Add-ons → AnkiConnect → Config in Anki desktop).
+  </div>
+
+  <label>Anki note type</label>
+  <input id="ankiNoteType" type="text" />
+  <div class="help">Created automatically on first save. Fields: Audio, Sentence, Translation, Source.</div>
+
+  <div class="actions">
+    <button id="save">Save</button>
+    <button id="testAnki" class="secondary" type="button">Test AnkiConnect</button>
+    <span id="status" class="status"></span>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

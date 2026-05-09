@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "YT Immersion Mining",
+  "version": "0.1.0",
+  "description": "One-click sentence mining from YouTube subtitles into Anki, with audio and DeepSeek translation.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "http://127.0.0.1:8765/*",
+    "http://localhost:8765/*",
+    "https://api.deepseek.com/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/watch*"],
+      "js": ["content.js"],
+      "css": ["overlay.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "action": { "default_popup": "popup.html", "default_title": "YT Immersion Mining" }
+}

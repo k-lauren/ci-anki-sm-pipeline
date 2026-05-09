@@ -1,0 +1,160 @@
+.ytim-overlay {
+  position: fixed;
+  top: 80px;
+  right: 24px;
+  z-index: 2147483647;
+  width: 360px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #111;
+}
+
+.ytim-card {
+  background: #fff;
+  border: 1px solid #d0d0d0;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  padding: 12px 14px;
+}
+
+.ytim-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.ytim-title {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.ytim-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 4px;
+  color: #666;
+}
+
+.ytim-label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #777;
+  margin-top: 8px;
+  margin-bottom: 2px;
+}
+
+.ytim-sentence,
+.ytim-translation {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: inherit;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  padding: 6px 8px;
+  resize: vertical;
+}
+
+.ytim-audio {
+  margin-top: 10px;
+}
+
+.ytim-audio-el {
+  width: 100%;
+  height: 32px;
+}
+
+.ytim-status {
+  margin-top: 8px;
+  font-size: 12px;
+  min-height: 1em;
+  color: #666;
+}
+
+.ytim-status.ok { color: #107c10; }
+.ytim-status.err { color: #b00020; }
+
+.ytim-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.ytim-buttons button {
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #c0c0c0;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+
+.ytim-buttons .ytim-save {
+  background: #1a73e8;
+  border-color: #1a73e8;
+  color: #fff;
+}
+
+.ytim-buttons button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.ytim-toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.82);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  z-index: 2147483647;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.ytim-hold-indicator {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  z-index: 2147483647;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.ytim-hold-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #e53935;
+  animation: ytim-pulse 1s ease-in-out infinite;
+}
+
+.ytim-hold-timer {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.75;
+  font-size: 12px;
+  min-width: 36px;
+  text-align: right;
+}
+
+@keyframes ytim-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
